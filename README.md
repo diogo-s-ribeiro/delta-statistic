@@ -9,6 +9,6 @@ A python file with pertinent code that can be run directly;
 A Django web application code that can be deployed localy in your machine. 
 To do so, you should change "DEBUG = True", apply a random "SECRET_KEY" and add your domain to "ALLOWED_HOSTS".
 
-There are currentl also (free) websites that are deploying this webapplication. They can be found at:
+There are currently also (free) websites that are deploying this webapplication. They can be found at:
 - delta-statistic.onrender.com
 - delta-statistic.up.railway.app
