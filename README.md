@@ -1,13 +1,23 @@
-# delta-statistic - Testing phylogenetic signal with categorical traits and tree uncertainty
+# Testing phylogenetic signal with categorical traits and tree uncertainty
 
-In this repository you can download code of the delta statistic, that is:
+<p> &ensp; In this repository you can download the code of the delta statistic, that is divided into multiple folders: </p>
 
-(delta-python)
-A python file with pertinent code that can be run directly;
+<ul>
+    <li> Delta-Python </li>
+</ul>
+<p> A python file with pertinent code that can be run directly; </p>
 
-(delta-webapp)
-A Django web application code that can be deployed localy in your machine. 
-To do so, you should change "DEBUG = True", apply a random "SECRET_KEY" and add your domain to "ALLOWED_HOSTS".
+<br>
+<ul>
+    <li> Delta-Webapp </li>
+</ul>
+<p> A Django web application code that can be deployed localy in your machine. </p>
 
-There are currently also (free) websites that are deploying this webapplication. They can be found at:
-- delta-statistic.onrender.com
+---
+
+<p> &ensp; There are currently also (free) websites that are deploying this webapplication. They can be found at: </p>
+
+<ul>
+  <li> delta-statistic.onrender.com </li>
+  <li> delta-statistic.up.railway.app </li>
+</ul>
