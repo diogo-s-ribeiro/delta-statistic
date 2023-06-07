@@ -22,16 +22,24 @@
                 </div>
                 <div style="height: 2vh"></div>
                 <h5>
-                    MAP: Calculating marginal at each ancestral node and then choosing the combination of states that gives the highest Maximum Likelihood value.
+                    &emsp;There are various approaches to ancestral character estimation, that include Maximum likelihood (ML), Bayesian inference, and parsimony-based methods (cannot be used to calculate delta). 
+                    To perform ancestral character estimation, the tree is used as a framework for estimating ancestral character states at various nodes or branches with some degree of uncertainty. 
+                    Maximum likelihood and Bayesian methods use statistical models to estimate the most probable character states for the ancestral nodes depending on 
+                    observed trait data, the evolutionary model chosen, and the phylogenetic relationships among the organisms.
+                    <br><br>
+                    • MAP
+                    <br>
+                    &emsp;Calculates the marginal at each ancestral node and then chooses a state with the highest posterior probability for each, independently from each other.
+                    <br><br>
+                    • JOINT
+                    <br>
+                    &emsp;Calculates the joint combination of ancestral character states from across the tree that maximizes the likelihood of the data when analyzed together.
+                    <br><br>
+                    • MPPA
+                    <br>
+                    &emsp;The marginal posterior probabilities approximation, proposed by S. A. Ishikawa in 2019, for every node, it chooses a subset of likely states that minimizes the prediction error measured by the Brier score.
                 </h5>
-                <h5>
-                    JOINT: Joint combination of ancestral character states from across the tree that together maximizes the likelihood of the data.
-                </h5>
-                <h5>
-                    MPPA: Chooses for every node a subset of likely states that minimizes the prediction error measured by the Brier score.
-                </h5>
-
-
+            
             </div>
         </section>
 

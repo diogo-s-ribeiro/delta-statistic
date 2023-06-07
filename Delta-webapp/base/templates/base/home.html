@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src={% static 'base/assets/Delta2.jpg' %} /></div>
+                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src={% static 'base/assets/Delta2.png' %} /></div>
                 </div>
             </div>
         </header>
@@ -29,26 +29,25 @@
         <section class="py-5" id="features">
             <div class="container px-5 my-5">
                 <div class="row">
-                    <div class="col-lg-4 mb-5 mb-lg-0"><img class=" me-3" src={% static 'base/assets/test.png' %} alt="..." /></div>
-                    <div class="col-lg-1"></div>
-                    <div class="col-lg-7">
+
+                    <div class="col-lg-2"></div>
+                    <div class="col">
                         <p style="margin-bottom: 1cm;"></p>
-                        <div class="row row-cols-1 row-cols-md-2">
+                        <div class="row">
                             <div class="col mb-5 h-100">
-                                <h2 class="h4"><a class="bi bi-tree-fill btn" href={% url 'h_files' %}></a>Phylogeny tree(s) & States</h2>
-                                <p class="mb-0">Using multiple or a single one.</p>
+                                <p style="margin-bottom: 1cm;"></p>
+                                <h2 class="h3"><b>Tree & States</b></h2>
+                                <p style="margin-bottom: 4cm;"></p>
+                                <h2 class="h3"><b>Entropy</b></h2>
                             </div>
+                            
+                            <div class="col"><img class="me-5" src={% static 'base/assets/Easy_as.png' %}/></div>
+                            
                             <div class="col mb-5 h-100">
-                                <h2 class="h4"><a class="bi bi-diagram-3-fill btn" href={% url 'h_ace' %}></a>ACE</h2>
-                                <p class="mb-0">Discrete Ancestral Characters (Rowan2019).</p>
-                            </div>
-                            <div class="col mb-5 mb-md-0 h-100">
-                                <h2 class="h4"><a class="bi bi-toggles2 btn" href={% url 'h_entropy' %}></a>Entropy</h2>
-                                <p class="mb-0">Shannon's entropy.</p>
-                            </div>
-                            <div class="col h-100">
-                                <h2 class="h4"><a class="bi bi-skip-end-fill btn" href={% url 'calculate' %}></a>Delta</h2>
-                                <p class="mb-0">Calculate δ-statistic (Borges2019).</p>
+                                <p style="margin-bottom: 1cm;"></p>
+                                <h2 class="h3"><b>ACE</b></h2>
+                                <p style="margin-bottom: 4cm;"></p>
+                                <h2 class="h3"><b>Delta</b></h2>
                             </div>
                         </div>
                     </div>
@@ -63,7 +62,6 @@
                         <div class="text-center">
                             <div class="fs-4 mb-4 fst-italic">"Instead, we simply hope to detect 'phylogenetic signal', which we define as a tendency for related species to resemble each other more than they resemble species drawn at random from the tree."</div>
                             <div class="d-flex align-items-center justify-content-center">
-                                <img class="rounded-circle me-3" src={% static 'base/assets/White.png' %} alt="..." />
                                 <div class="fw-bold">
                                     S. P. Blomberg
                                     <span class="fw-bold text-primary mx-1">/</span>

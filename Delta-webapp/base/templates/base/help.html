@@ -26,18 +26,19 @@
                         <h2 class="accordion-header" id="heading-1">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#chapter-1" aria-expanded="true" aria-controls="chapter-1">
-                        <h4><b>Phylogenetic Signal</b></h4>
+                        <h6><b>&emsp;Phylogenetic Signal</b></h6>
                         </button>
                         </h2>
                         <div id="chapter-1" class="accordion-collapse collapse" 
                         aria-labelledby="heading-1" data-bs-parent="#chapters">
                             <div class="accordion-body">
+                                <div style="height: 1vh"></div>
+                                &emsp;The phylogenetic signal, frequently used to identify signatures of adaptive evolution or
+                                important associations between genes and phenotypes, measures the tendency for recently diverged
+                                species to resemble each other more than distantly related species.
+                                <br>
                                 <div style="height: 2vh"></div>
-                                <a class="btn btn-outline-info" href={% url 'h_ps' %} role="button">More Info</a>
-                                <div style="height: 2vh"></div>
-                                <h6><p class="text-left">
-                                    The phylogenetic signal measures the tendency of closely related species to be more phenotypically similar than other species randomly drawn on the phylogenetic tree.
-                                </p></h6>
+                                &ensp;<a class="btn btn-light" href={% url 'h_ps' %} role="button">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -45,18 +46,18 @@
                         <h2 class="accordion-header" id="heading-2">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#chapter-2" aria-expanded="true" aria-controls="chapter-2">
-                        <h4><b>Evolutionary Models</b></h4>
+                        <h6><b>&emsp;Evolutionary Models</b></h6>
                         </button>
                         </h2>
                         <div id="chapter-2" class="accordion-collapse collapse" 
                         aria-labelledby="heading-2" data-bs-parent="#chapters">
                             <div class="accordion-body">
+                                <div style="height: 1vh"></div>
+                                &emsp;Evolutionary models serve as tools to understand the processes of biological evolution over time and infer the evolutionary relationships between species. 
+                                They provide frameworks and mathematical tools that help study how species change, diversify, and adapt to their environments.
+                                <br>
                                 <div style="height: 2vh"></div>
-                                <a class="btn btn-outline-info" href={% url 'h_model' %} role="button">More Info</a>
-                                <div style="height: 2vh"></div>
-                                <h6><p class="text-left">
-                                    The diferent evolutionary models that can be used through PastML.
-                                </p></h6>
+                                &ensp;<a class="btn btn-light" href={% url 'h_model' %} role="button">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -64,18 +65,18 @@
                         <h2 class="accordion-header" id="heading-3">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#chapter-3" aria-expanded="true" aria-controls="chapter-3">
-                        <h4><b>Ancestral Character Estimation</b></h4>
+                        <h6><b>&emsp;Ancestral Character Estimation</b></h6>
                         </button>
                         </h2>
                         <div id="chapter-3" class="accordion-collapse collapse" 
                         aria-labelledby="heading-3" data-bs-parent="#chapters">
                             <div class="accordion-body">
+                                <div style="height: 1vh"></div>
+                                &emsp;Ancestral character estimation, also known as ancestral state reconstruction, 
+                                is used to infer the likely characteristics or traits of ancestral organisms based on the observed traits of their descendants.
+                                <br>
                                 <div style="height: 2vh"></div>
-                                <a class="btn btn-outline-info" href={% url 'h_ace' %} role="button">More Info</a>
-                                <div style="height: 2vh"></div>
-                                <h6><p class="text-left">
-                                    The diferent methods to calculate ACE through PastML
-                                </p></h6>
+                                &ensp;<a class="btn btn-light" href={% url 'h_ace' %} role="button">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -83,18 +84,18 @@
                         <h2 class="accordion-header" id="heading-4">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#chapter-4" aria-expanded="true" aria-controls="chapter-4">
-                        <h4><b>Entropy</b></h4>
+                        <h6><b>&emsp;Entropy</b></h6>
                         </button>
                         </h2>
                         <div id="chapter-4" class="accordion-collapse collapse" 
                         aria-labelledby="heading-4" data-bs-parent="#chapters">
                             <div class="accordion-body">
+                                <div style="height: 1vh"></div>
+                                &emsp;The δ-statistic is based on the concept of entropy, but there are multiple methods to calculate "uncertainty" from the ancestral trait’s probability vectors. 
+                                Although these methods generally lead to similar results, their mathematical formulations and sensitivities differ.
+                                <br>
                                 <div style="height: 2vh"></div>
-                                <a class="btn btn-outline-info" href={% url 'h_entropy' %} role="button">More Info</a>
-                                <div style="height: 2vh"></div>
-                                <h6><p class="text-left">
-                                    Formulas used to calculate delta.
-                                </p></h6>
+                                &ensp;<a class="btn btn-light" href={% url 'h_entropy' %} role="button">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -102,24 +103,21 @@
                         <h2 class="accordion-header" id="heading-5">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#chapter-5" aria-expanded="true" aria-controls="chapter-5">
-                        <h4><b>Input Files</b></h4>
+                        <h6><b>&emsp;Input Files</b></h6>
                         </button>
                         </h2>
                         <div id="chapter-5" class="accordion-collapse collapse" 
                         aria-labelledby="heading-5" data-bs-parent="#chapters">
                             <div class="accordion-body">
+                                <div style="height: 1vh"></div>
+                                &emsp;Once you make the decision on the previous parameters, to run the analysis you will be prompted to provide two files (or one with the ancestral states already calculated).
+                                <br>
                                 <div style="height: 2vh"></div>
-                                <a class="btn btn-outline-info" href={% url 'h_files' %} role="button">More Info</a>
-                                <div style="height: 2vh"></div>
-                                <h6><p class="text-left">
-                                    Type of files and format of the files that the website can read.
-                                </p></h6>
+                                &ensp;<a class="btn btn-light" href={% url 'h_files' %} role="button">Read more</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
 

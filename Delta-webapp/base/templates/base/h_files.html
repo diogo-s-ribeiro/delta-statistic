@@ -21,16 +21,62 @@
                     </div>
                 </div>
                 <div style="height: 2vh"></div>
+                
                 <h5>
-                    Input Ancestral States Directly: csv
-                </h5>
-                <h5>
-                    Phylogenetic Tree(s): txt
-                </h5>
-                <h5>
-                    Leaf States: csv
-                </h5>
+                    &emsp;To run the analysis you will be asked to provide:
+                    <br><br>
+                    • Input 2 files, with the Phylogenetic Trees and Leaf States desired, if the ancestral states are not yet calculated. (e.g.)
+                    <br><br>
 
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <h5 class="card-header">File: Phylogenetic Trees</h5>
+                            <div class="card-body">
+                              <p class="card-text">
+                                (A:1,(B:1,(E:1,D:1):0.5):0.5);
+                                <br><br><br><br><br>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <h5 class="card-header">File: Leaf States</h5>
+                            <div class="card-body">
+                              <p class="card-text">
+                                id,State<br>
+                                A,State1<br>
+                                B,State1<br>
+                                D,State3<br>
+                                E,State2<br>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    • Input directly a file with all the Ancestral States calculated. (e.g)
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <h5 class="card-header">File: Ancestral States Calculated</h5>
+                            <div class="card-body">
+                              <p class="card-text">
+                                Entity, State1, State2, State3<br>
+                                ROOT, 0.1,0.2,0.7<br>
+                                node_1, 0.333,0.333,0.334<br>
+                                node_2, 0,0.5,0.5<br><br>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                </h5>
 
             </div>
         </section>

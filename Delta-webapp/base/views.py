@@ -106,9 +106,13 @@ def delta_csv_metadata(request):
     writer.writerow( [str(today), str(l0), str(se), str(sim), str(burn), str(thin), str(ent_type)] )
 
     return response
+import time
+
 
 ##### Get Delta #####
 def result(request):
+
+    a = time.time()
 
     #Optional variables
     ancest    = 'NA'
@@ -164,16 +168,13 @@ def result(request):
 
     else:
         # Transform csv into list
-        ancest = ancest.replace("\r", "" )
-        ancest = ancest.split('\n')
+        ancest = ancest.replace("\r", "" ).split('\n')
         #Transform into array
         arr_ancest = [arr.split(',') for arr in ancest]
-        arr_ancest = arr_ancest[1:]
-        arr_ancest = [list(map(float, lst_arr[1:])) for lst_arr in arr_ancest]
+        arr_ancest = [list(map(float, lst_arr)) for lst_arr in arr_ancest if lst_arr != ([''] or [])]
         #Append
         marg = np.array(arr_ancest)
         astates += [marg]
-
 
     result = []
     for x in range(len(astates)):
@@ -201,7 +202,7 @@ def result(request):
     request.session['thin']       = str(thin)
     request.session['ent_type']   = str(ent_type)
 
-
+    print(time.time()-a)
 
     return render(request, 'base/result.html', 
     {'Date': today, 'Phylo': name, 'Lambda0': l0, 'Se':se, 'Sim':sim, 'Thin':thin, 'Burn': burn, 

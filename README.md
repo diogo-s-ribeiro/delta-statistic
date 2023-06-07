@@ -15,7 +15,7 @@
 
 ---
 
-<p> &ensp; There are currently also (free) websites that are deploying this webapplication. They can be found at: </p>
+<p> &ensp; There are currently also (free) websites that are deploying this web-application. They can be found at: </p>
 
 <ul>
   <li> delta-statistic.onrender.com </li>
