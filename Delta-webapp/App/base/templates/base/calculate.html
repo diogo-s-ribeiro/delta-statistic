@@ -1,0 +1,580 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+            <!-- Features section-->
+            <section class="py-1" id="features">
+                <div class="container px-5 my-5">
+
+                    <p style="margin-bottom: 3cm;"></p>
+                    
+                    <div id="mydiv">
+                        <form method="post" enctype="multipart/form-data" action="result">
+                            {% csrf_token %}
+
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="col" align="right"><img class="me-4" src={% static 'base/assets/1.png' %}/></div>
+                                  </div>
+                                  <div class="col-10">
+                                    <br>
+                                    <h3><b>  
+                                        Prepare Input Files
+                                    </b></h3>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-2-modal"></i> 
+                                    <label for="States">Input Ancestral States Directly:</h5></label>
+                                <input class="btn btn-primary" type="file" id="ancest" name="ancest">
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-xl-6">
+                                    <div class="text-center">
+                                        <div style="height: 2vh"></div>
+                                        <h4 class="fw-bolder">OR</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-3-modal"></i> 
+                                            <label for="Tree">Phylogenetic Tree(s):</h5></label>
+                                        <input class="btn btn-primary" type="file" id="tree" name="tree">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-4-modal"></i>
+                                            <label for="States">Leaf States:</h5></label>
+                                        <input class="btn btn-primary" type="file" id="states" name="states">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-20-modal"></i>  
+                                    <label for="Delimiter">Multiple Trees Delimiter:</h5></label> 
+                                <input class="form-control" type="text" id="delim" name="delim">
+                                <small id="emailHelp" class="form-text text-muted">If left blank it will consider multiple lines as multiple phylogenetic trees</small>
+                            </div>
+
+                            <div style="height: 5vh"></div>
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="col" align="right"><img class="me-4" src={% static 'base/assets/2.png' %}/></div>
+                                  </div>
+                                  <div class="col-10">
+                                    <br>
+                                    <h3><b>  
+                                        Produce Ancestral Characters
+                                    </b></h3>
+                                  </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <h5><label for="Name">Use the <b>Input Ancestral States Directly</b> file?</h5></label> 
+                                <select class="form-select" name="doyou1" id="doyou1">
+                                    <option value="Yes">          Yes, input them directly.</option>
+                                    <option value="No" selected>  No, calculate them with the "Phylogenetic Tree(s)" and "Leaf States" files</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="modal fade" tabindex="-1" id="help-2-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                <div class="modal-dialog" style="width:3250px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="modal-title">Input Ancestral States Directly</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <h6>This is how the file should look like:</h6>
+                                            <br>
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    State1, State2, State3<br>
+                                                    0.1,0.2,0.7<br>
+                                                    0.333,0.333,0.334<br>
+                                                    0,0.5,0.5
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="height: 2vh"></div>
+                            <div class="accordion" id="chapters">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading-21">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#chapter-21" aria-expanded="true" aria-controls="chapter-21">
+                                    <b><h5>Ancestral Character Estimation (PastML)</h5></b>
+                                    </button>
+                                    </h2>
+                                    <div id="chapter-21" class="accordion-collapse collapse" aria-labelledby="heading-21" data-bs-parent="#chapters">
+                                        <div class="accordion-body">
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-5-modal"></i>
+                                                            <label for="Name">Method:</h5></label> 
+                                                        <select class="form-select" name="pml1" id="pml1">
+                                                            <option value="MPPA" selected>  MPPA</option>
+                                                            <option value="MAP">            MAP</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-6-modal"></i>
+                                                            <label for="Name">Model:</h5></label> 
+                                                        <select class="form-select" name="pml2" id="pml2">
+                                                            <option value="JC">             JC</option>
+                                                            <option value="F81" selected>   F81</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-3-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Phylogenetic Tree</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>This is how the file should look like:</h6>
+                                                            <br>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    (A:1,(B:1,(E:1,D:1):0.5):0.5);
+                                                                </li>
+                                                            </ul>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="modal fade" tabindex="-1" id="help-4-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Leaf States</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>This is how the file should look like:</h6>
+                                                            <br>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    id,State<br>
+                                                                    A,State1<br>
+                                                                    B,State1<br>
+                                                                    D,State3<br>
+                                                                    E,State2<br>
+                                                                </li>
+                                                            </ul>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="modal fade" tabindex="-1" id="help-20-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Multiple Trees Delimiter</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>This is how the file should look like:</h6>
+                                                            <br>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    -- Trees Delimiter --
+                                                                    <br>
+                                                                    (A:1,(B:1,(E:1,D:1):0.5):0.5);
+                                                                    <br>
+                                                                    -- Trees Delimiter --
+                                                                    <br>
+                                                                    (A:1,(B:1,(E:1,D:1):0.3):0.5);
+                                                                    <br>
+                                                                    -- Trees Delimiter --
+                                                                    <br>
+                                                                    ((A:1,B:1):0.3,(E:1,D:0.5):0.5);
+                                                                </li>
+                                                            </ul>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-5-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Method</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>
+                                                                There are various approaches to ancestral character estimation, that include Maximum likelihood (ML), Bayesian inference, and parsimony-based methods
+                                                            </h6>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-6-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Model</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h6>
+                                                                &emsp;Evolutionary models serve as tools to understand the processes of biological evolution over time and infer the evolutionary relationships between species. 
+                                                                They provide frameworks and mathematical tools that help study how species change, diversify, and adapt to their environments.
+                                                            </h6>
+                                                            <br>
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    JC69
+                                                                    <small class="text-muted">Jukes and Cantor 1969</small>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    F81
+                                                                    <small class="text-muted">Felsenstein 1981</small>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div style="height: 2vh"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="height: 5vh"></div>
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="col" align="right"><img class="me-4" src={% static 'base/assets/3.png' %}/></div>
+                                  </div>
+                                  <div class="col-10">
+                                    <br>
+                                    <h3><b>  
+                                        Define δ-Parameters & Entropy
+                                    </b></h3>
+                                  </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div style="height: 2vh"></div>
+                            <div class="accordion" id="chapters">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading-31">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#chapter-31" aria-expanded="true" aria-controls="chapter-31">
+                                    <b><h5>Delta</h5></b>
+                                    </button>
+                                    </h2>
+                                    <div id="chapter-31" class="accordion-collapse collapse" aria-labelledby="heading-31" data-bs-parent="#chapters">
+                                        <div class="accordion-body">
+                                            
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-8-modal"></i>
+                                                            <label for="l0">L0:</h5></label>
+                                                        <input class="form-control" type="text" value="0.1" id="d1" name="d1">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-9-modal"></i>
+                                                            <label for="Se">Se:</h5></label>
+                                                        <input class="form-control" type="text" value="0.5" id="d2" name="d2">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-8-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">L0</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>
+                                                                Rate parameter of the exponential prior distribution
+                                                            </h6>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-9-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Se</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>
+                                                                Standard deviation of the proposal distribution
+                                                            </h6>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-group">
+                                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-10-modal"></i>
+                                                            <label for="Sim">Sim:</h5></label>
+                                                        <input class="form-control" type="text" value="1000" id="d3" name="d3">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-11-modal"></i>
+                                                            <label for="Thin">Thin:</h5></label>
+                                                        <input class="form-control" type="text" value="10" id="d4" name="d4">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-12-modal"></i>
+                                                            <label for="Burn">Burn:</h5></label>
+                                                        <input class="form-control" type="text" value="100" id="d5" name="d5">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-10-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Sim</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>
+                                                                Number of iterations to calculate the delta-statistic
+                                                            </h6>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-11-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Thin</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>
+                                                                Every x iteration we keep
+                                                            </h6>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-12-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Burn</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>
+                                                                Number of iterations that are burned-in
+                                                            </h6>
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-7-modal"></i>
+                                                    <label for="Name">Formula:</h5></label> 
+                                                <select class="form-select" type="text" name="ent1" id="ent1">
+                                                    <option value="SE">               Shannon Entropy</option>
+                                                    <option value="GI">               Ginni Impurity</option>
+                                                    <option value="LSE" selected>     Linnear Shannon Entropy</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="modal fade" tabindex="-1" id="help-7-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                                <div class="modal-dialog" style="width:3250px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h3 class="modal-title" id="modal-title">Formula</h3>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+            
+                                                            <h6>Select formula to calculate the entropy of the delta-statistic.</h6>
+                                                            <div style="height: 2vh"></div>
+
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Shannon Entropy (normalized)
+                                                                    <small class="text-muted">C. E. Shannon 1948</small>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Ginni impurity (normalized)
+                                                                    <small class="text-muted">L. Breiman 1984</small>
+                                                                </li>
+                                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    Linnear Shannon Entropy
+                                                                    <small class="text-muted">R. Borges 2018</small>
+                                                                </li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="height: 5vh"></div>
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="col" align="right"><img class="me-4" src={% static 'base/assets/4.png' %}/></div>
+                                  </div>
+                                  <div class="col-10">
+                                    <br>
+                                    <h3><b>  
+                                        Name & Calculate δ-statistic
+                                    </b></h3>
+                                  </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="form-group row">
+                                <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg"><h5><i class="bi bi-info-circle btn" data-bs-toggle="modal" data-bs-target="#help-1-modal"></i>Project Name:</h5></label>
+                                <div class="col-sm-10">
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control form-control-lg" id="n0" name="n0" placeholder="  e.g. Delta_example">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><h5> txt | csv </h5></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" tabindex="-1" id="help-1-modal" aria-labelledby="modal-title" aria-hidden="true">
+                                <div class="modal-dialog" style="width:3250px;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="modal-title">File Name</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <h6>
+                                                &emsp;Set the name of the downloadable files (resulting data and statistics) that can be downloaded after results.
+                                            </h6>
+                                            <div style="height: 2vh"></div>
+
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Delta_example.txt
+                                                    <small class="text-muted">Results</small>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Delta_example.csv
+                                                    <small class="text-muted">Results</small>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Delta_example_metadata.txt
+                                                    <small class="text-muted">Metadata</small>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    Delta_example_metadata.csv
+                                                    <small class="text-muted">Metadata</small>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="submit" class="btn btn-success submit-btn">
+                            <div style="height: 5vh"></div>
+                        
+
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Responsive Sidebar -->
+        <script src={% static 'base/js/sidebar.js' %}></script>
+        <!-- Multi-Form JS -->
+        <script src={% static 'base/js/multi_form.js' %}></script>
+    </main>
+</body>
+
+{% endblock content %}
