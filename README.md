@@ -27,5 +27,10 @@
 
 <ul>
   <li> delta-statistic.onrender.com </li>
-  <li> delta-statistic.up.railway.app </li>
+  <li> <s> delta-statistic.up.railway.app </s> &ensp; (unavailable) </li>
 </ul>
+
+---
+
+<p> &ensp; This repository refers to the paper: </p>
+<sub> Diogo Ribeiro, Rui Borges, Ana Paula Rocha, Agostinho Antunes, Testing phylogenetic signal with categorical traits and tree uncertainty, Bioinformatics, Volume 39, Issue 7, July 2023, btad433, https://doi.org/10.1093/bioinformatics/btad433. </sub>
