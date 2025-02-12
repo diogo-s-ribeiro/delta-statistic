@@ -33,7 +33,11 @@ The web application is also available through free hosting services. You can acc
 
 ## Citation
 
-If you use this repository or the Delta statistic in your work, please cite the following paper:
+If you use this repository or the Delta statistic in your work, please cite the following papers:
+
+**Rui Borges, João Paulo Machado, Cidália Gomes, Ana Paula Rocha, Agostinho Antunes.**  
+*"Measuring phylogenetic signal between categorical traits and phylogenies."*  
+*Bioinformatics*, Volume 35, Issue 11, June 2019, Pages 1862–1869, [https://doi.org/10.1093/bioinformatics/bty800](https://doi.org/10.1093/bioinformatics/bty800).
 
 **Diogo Ribeiro, Rui Borges, Ana Paula Rocha, Agostinho Antunes.**  
 *"Testing phylogenetic signal with categorical traits and tree uncertainty."*  
