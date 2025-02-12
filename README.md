@@ -37,8 +37,10 @@ If you use this repository or the Delta statistic in your work, please cite the 
 
 **Rui Borges, João Paulo Machado, Cidália Gomes, Ana Paula Rocha, Agostinho Antunes.**  
 *"Measuring phylogenetic signal between categorical traits and phylogenies."*  
-*Bioinformatics*, Volume 35, Issue 11, June 2019, Pages 1862–1869, [https://doi.org/10.1093/bioinformatics/bty800](https://doi.org/10.1093/bioinformatics/bty800).
+*Bioinformatics*, Volume 35, Issue 11, June 2019, Pages 1862–1869  
+[https://doi.org/10.1093/bioinformatics/bty800](https://doi.org/10.1093/bioinformatics/bty800).
 
 **Diogo Ribeiro, Rui Borges, Ana Paula Rocha, Agostinho Antunes.**  
 *"Testing phylogenetic signal with categorical traits and tree uncertainty."*  
-*Bioinformatics*, Volume 39, Issue 7, July 2023, btad433, [https://doi.org/10.1093/bioinformatics/btad433](https://doi.org/10.1093/bioinformatics/btad433).
+*Bioinformatics*, Volume 39, Issue 7, July 2023, btad433  
+[https://doi.org/10.1093/bioinformatics/btad433](https://doi.org/10.1093/bioinformatics/btad433).
